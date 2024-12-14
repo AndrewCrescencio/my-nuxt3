@@ -12,7 +12,9 @@ const online = useOnline()
     <ClientOnly>
       <Suspense>
         <p v-if="online">
-          Oi amigo
+          <BaseButton>
+            Oi amigo
+          </BaseButton>
         </p>
         <div v-else text-gray:80>
           You're offline

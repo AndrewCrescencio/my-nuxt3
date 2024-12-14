@@ -1,3 +1,4 @@
+import Aura from '@primevue/themes/aura'
 import { pwa } from './app/config/pwa'
 import { appDescription } from './app/constants/index'
 
@@ -9,6 +10,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@vite-pwa/nuxt',
     '@nuxt/eslint',
+    '@primevue/nuxt-module',
   ],
 
   devtools: {
@@ -34,7 +36,8 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '@unocss/reset/tailwind.css',
+    '@unocss/reset/tailwind-compat.css',
+    // '@unocss/reset/tailwind.css',
   ],
 
   colorMode: {
@@ -74,6 +77,28 @@ export default defineNuxtConfig({
       nuxt: {
         sortConfigKeys: true,
       },
+    },
+  },
+
+  primevue: {
+    autoImport: true,
+
+    components: {
+      prefix: 'Prime',
+
+    },
+    options: {
+
+      ripple: true,
+      theme: {
+
+        preset: Aura,
+        cssLayer: {
+          name: 'primevue',
+          order: 'tailwind-base',
+        },
+      },
+
     },
   },
 
