@@ -11,7 +11,10 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     '@nuxt/eslint',
     '@primevue/nuxt-module',
+    '@vee-validate/nuxt',
   ],
+
+  ssr: true,
 
   devtools: {
     enabled: true,
@@ -103,4 +106,14 @@ export default defineNuxtConfig({
   },
 
   pwa,
+
+  veeValidate: {
+    autoImports: true,
+    componentNames: {
+      Form: 'VeeForm',
+      Field: 'VeeField',
+      FieldArray: 'VeeFieldArray',
+      ErrorMessage: 'VeeErrorMessage',
+    },
+  },
 })
